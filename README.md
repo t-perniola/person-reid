@@ -17,11 +17,15 @@ Includes early exploratory experiments conducted to gain preliminary insights in
 - `reid_model_selection.ipynb`:
 Contains systematic experiments performed on the validation split for hyperparameter tuning and training recipe selection. This notebook documents the model selection process that leads to the final configuration. Marginal note: metrics on the validation split can be slightly optimistic because the detector was trained using frames that also appear in the validation set. This makes the detection stage less “unseen” on validation and can positively bias the end-to-end person search metrics. Re-ID model selection is still performed on the validation split, while final reporting is done on the held-out test set.
 
+## Notes
+
 **Note 1:** Both `reid_exploratory_runs.ipynb` and `reid_model_selection.ipynb` ontain a significantly larger number of experiments compared to those included in `main.ipynb`. These notebooks explore additional configurations such as CosFace loss, Triplet Loss, different learning rate schedulers, and various ablation settings. They document the experimental process that led to the final design choices.
 
 **Note 2:** Due to Kaggle’s notebook structure:
 - Image visualization requires non-trivial additional code (showing images isn't possible with a simple markdown cell);
 - Full modularity is partially limited: importing custom modules across notebooks was not reliably supported in our setup. As a result, several functions are duplicated across notebooks to keep each notebook self-contained and executable.
+
+**Note 3:** Some portions of code were freely adapted from some repos, like [SeqNet](https://github.com/serend1p1ty/SeqNet), [COAT](https://github.com/Kitware/COAT/tree/369d93418716a4a28a96203ebd012020877db550), [DeepPersonReID](https://github.com/KaiyangZhou/deep-person-reid). Moreover, most of the hyperparamer selection (the ones that wasn't selected through grid search) and most of the project approaches (like ablation studies, experimental setup/runs etc.) were chosen by looking at the referenced literature and corresponding repositories.
 
 ## **How to run**
 The `main.ipynb` notebook is ready to be executed as provided, since the training phase has been disabled and only inference/evaluation is performed.
